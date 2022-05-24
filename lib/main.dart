@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tonal_challenge/formMetric.dart';
 import 'package:tonal_challenge/styles.dart';
+import 'styles.dart' as styles;
 
 void main() {
   return runApp(
@@ -26,10 +27,11 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final TextEditingController stringController = TextEditingController();
-  final TextEditingController weightController = TextEditingController();
-
+  double diameter = styles.bubbleDiameter.toDouble();
   var stringValue = "John LeBron";
+  int intWeight = 182;
+
+  // List<Widget> metricsWidget = [];
 
   @override
   void initState() {
@@ -41,59 +43,22 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: SingleChildScrollView(
-            child: new Column(
-                children: <Widget>[
-                  SizedBox(height: 1,),
-                  Center(
-                    child: Stack(
-                      children: <Widget>[
-                        Container(
-                          margin: EdgeInsets.all(10),
-                          decoration: bubbleBoxDecoration,
-                          height: 272,
-                        ),
-                        Container(
-                          margin: EdgeInsets.fromLTRB(0, 50, 0, 0),
-                            alignment: Alignment.center,
-                            child: Text(
-                              "$stringValue",
-                              style: labelTextStyle,
-                            )
-                        ),
-                        Container(
-                            margin: EdgeInsets.fromLTRB(0, 60, 0, 0),
-                            alignment: Alignment.center,
-                            child: Text(
-                              '45',
-                              style: weightTextStyle,
-                            )
-                        ),
-                        Container(
-                            margin: EdgeInsets.fromLTRB(0, 200, 0, 0),
-                            alignment: Alignment.center,
-                            child: Text(
-                              'lbs',
-                              style: unitTextStyle,
-                            )
-                        ),
-                      ],
-                    )
-                  ),
-                ]
-            ),
-        ),
+      body: ListView(
+        children: ListOfWidget.metricsWidget
+      ),
         floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.add),
           backgroundColor: Color.fromRGBO(50, 203, 204, 1),
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) => FormMetric()));
-
           },
         ),
       );
   }
-
+}
+class ListOfWidget{
+  ListOfWidget._();
+  static List<Widget> metricsWidget = [];
 }
 
 

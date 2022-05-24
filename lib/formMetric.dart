@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tonal_challenge/main.dart';
+import 'package:tonal_challenge/styles.dart';
+import 'main.dart' as main;
+import 'styles.dart' as styles;
 
 class FormMetric extends StatefulWidget {
 
@@ -6,6 +10,13 @@ class FormMetric extends StatefulWidget {
   State<FormMetric> createState() => _FormMetricState();
 }
 class _FormMetricState extends State<FormMetric> {
+
+  double diameter = styles.bubbleDiameter.toDouble();
+  TextEditingController labelController = TextEditingController();
+  TextEditingController weightController = TextEditingController();
+  String stringValue = "John LeBron";
+  int intWeight = 182;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +43,7 @@ class _FormMetricState extends State<FormMetric> {
                     border: OutlineInputBorder(),
                     hintText: "Eg. Upper Body",
                 ),
-                // controller: incomeController,
+                controller: labelController,
               ),
               Align(
                 alignment: Alignment.centerLeft,
@@ -50,18 +61,48 @@ class _FormMetricState extends State<FormMetric> {
                   hintText: "Eg. 149",
                 ),
                 keyboardType: TextInputType.number,
-                // controller: incomeController,
+                controller: weightController,
               ),
               ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    // InsertMethod();
+                    ListOfWidget.metricsWidget.add(
+                      Stack(
+                        children: <Widget>[
+                          Container(
+                            margin: EdgeInsets.all(10),
+                            decoration: bubbleBoxDecoration,
+                            height: diameter,
+                          ),
+                          Container(
+                              margin: EdgeInsets.fromLTRB(0, 50, 0, 0),
+                              alignment: Alignment.center,
+                              child: Text(
+                                labelController.text,
+                                style: labelTextStyle,
+                              )
+                          ),
+                          Container(
+                              margin: EdgeInsets.fromLTRB(0, 60, 0, 0),
+                              alignment: Alignment.center,
+                              child: Text(
+                                weightController.text,
+                                style: weightTextStyle,
+                              )
+                          ),
+                          Container(
+                              margin: EdgeInsets.fromLTRB(0, 200, 0, 0),
+                              alignment: Alignment.center,
+                              child: Text(
+                                'lbs',
+                                style: unitTextStyle,
+                              )
+                          )
+                        ],
+                      ),
+                    );
+                    // Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp()));
                   });
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //       builder: (context) => Navigation(),
-                  //     ));
                 },
                 child: Text('Submit'),
                 style: ButtonStyle(
