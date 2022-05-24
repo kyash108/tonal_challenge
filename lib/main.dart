@@ -31,8 +31,6 @@ class _MyAppState extends State<MyApp> {
   var stringValue = "John LeBron";
   int intWeight = 182;
 
-  // List<Widget> metricsWidget = [];
-
   @override
   void initState() {
     // TODO: implement initState
