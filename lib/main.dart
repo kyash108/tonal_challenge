@@ -25,7 +25,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  //Diameter for the bubble widget
   double diameter = styles.bubbleDiameter.toDouble();
+  //Default data for the widget
   var stringValue = "John LeBron";
   int intWeight = 182;
 
@@ -44,13 +46,16 @@ class _MyAppState extends State<MyApp> {
         title: Text('Tonal Mobile Coding Challenge',style: TextStyle(color: Color.fromRGBO(50, 75, 75, 1)),),
         backgroundColor: Color.fromRGBO(50, 203, 204, 1),
       ),
+      //Generating list of the widgets created
       body: ListView(
         children: ListOfWidget.metricsWidget
       ),
+        //floating action button to add a new entry
         floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.add),
           backgroundColor: Color.fromRGBO(50, 203, 204, 1),
           onPressed: () {
+            //redirecting the user to the form
             Navigator.push(context, MaterialPageRoute(builder: (context) => FormMetric()));
           },
         ),
@@ -59,6 +64,7 @@ class _MyAppState extends State<MyApp> {
 }
 class ListOfWidget{
   ListOfWidget._();
+  //empty list to store the widget information.
   static List<Widget> metricsWidget = [];
 }
 
