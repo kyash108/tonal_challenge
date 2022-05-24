@@ -105,6 +105,7 @@ class _FormMetricState extends State<FormMetric> {
                     weightController.clear();
                     final snackBar = SnackBar(content: Text("New widget created."),backgroundColor: Colors.green,);
                     ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp()));
 
                   });
                 },

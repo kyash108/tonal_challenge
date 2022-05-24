@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tonal_challenge/formMetric.dart';
 import 'package:tonal_challenge/styles.dart';
 import 'styles.dart' as styles;
+import 'package:auto_reload/auto_reload.dart';
 
 void main() {
   return runApp(
@@ -10,10 +11,6 @@ void main() {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.black,
-        appBar: AppBar(
-          title: Text('Tonal Mobile Coding Challenge',style: TextStyle(color: Color.fromRGBO(50, 75, 75, 1)),),
-          backgroundColor: Color.fromRGBO(50, 203, 204, 1),
-        ),
         body: MyApp(),
       ),
     ),
@@ -35,12 +32,17 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    // stringValue = stringController.text;
   }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
+      appBar: AppBar(
+        title: Text('Tonal Mobile Coding Challenge',style: TextStyle(color: Color.fromRGBO(50, 75, 75, 1)),),
+        backgroundColor: Color.fromRGBO(50, 203, 204, 1),
+      ),
       body: ListView(
         children: ListOfWidget.metricsWidget
       ),
