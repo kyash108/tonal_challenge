@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 
 const bubbleDiameter = 272;
 
 const bubbleBoxDecoration = BoxDecoration(
   color: Color(0xff53a99a),
   shape: BoxShape.circle,
+  image: DecorationImage(image: Svg('assets/images/graph.svg',),),
   boxShadow: [
     BoxShadow(
       offset: Offset(0, 27),

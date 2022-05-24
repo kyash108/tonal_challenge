@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:tonal_challenge/main.dart';
 import 'package:tonal_challenge/styles.dart';
 import 'main.dart' as main;
 import 'styles.dart' as styles;
+import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 
 class FormMetric extends StatefulWidget {
 

@@ -4,6 +4,7 @@ import 'package:tonal_challenge/formMetric.dart';
 import 'package:tonal_challenge/styles.dart';
 import 'styles.dart' as styles;
 import 'package:auto_reload/auto_reload.dart';
+import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 
 void main() {
   return runApp(
