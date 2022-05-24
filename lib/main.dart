@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tonal_challenge/formMetric.dart';
 import 'package:tonal_challenge/styles.dart';
 
 void main() {
@@ -39,7 +40,8 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SingleChildScrollView(
+      backgroundColor: Colors.black,
+      body: SingleChildScrollView(
             child: new Column(
                 children: <Widget>[
                   SizedBox(height: 1,),
@@ -85,44 +87,13 @@ class _MyAppState extends State<MyApp> {
           child: const Icon(Icons.add),
           backgroundColor: Color.fromRGBO(50, 203, 204, 1),
           onPressed: () {
-            showDialogBox(context);
+            Navigator.push(context, MaterialPageRoute(builder: (context) => FormMetric()));
+
           },
         ),
       );
   }
 
-  Future<void> showDialogBox(BuildContext context) async{
-    return await showDialog(context: context,
-    builder: (context){
-      return StatefulBuilder(builder: (context,setState){
-        return AlertDialog(
-          content: Form(child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text('Enter the name or body part.'),
-              TextFormField(
-                controller: stringController,
-                decoration: InputDecoration(hintText: 'Enter string'),
-              ),
-              Text('Enter the Weight.'),
-              TextFormField(
-                controller: weightController,
-                decoration: InputDecoration(hintText: 'Enter weight'),
-              ),
-            ],
-          ),
-          ),
-          actions: <Widget>[
-            TextButton(onPressed: (){
-              Navigator.of(context).pop();
-            },
-                child: Text('Submit'))
-          ],
-        );
-      });
-    }
-    );
-  }
 }
 
 
